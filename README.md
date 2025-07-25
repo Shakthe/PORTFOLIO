@@ -25,7 +25,7 @@ It includes:
 
 - **React.js**
 - **Tailwind CSS**
-- **Vite** (or Create React App if used)
+- **Vite** 
 - **Vercel** (for deployment)
 
 ---
