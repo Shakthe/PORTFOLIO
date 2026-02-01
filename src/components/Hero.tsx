@@ -10,7 +10,7 @@ const Hero = () => {
   };
 
   const viewCV = () => {
-    window.open('https://drive.google.com/file/d/1pTpv1LKwZC6B4LZAG6ij4jQElVYbb_20/view?usp=sharing', '_blank');
+    window.open('https://drive.google.com/file/d/1LVh979Xc2go7hqkxqIzeoS6AgBb1JQWm/view?usp=sharing', '_blank');
   };
 
   return (
