@@ -30,18 +30,6 @@ It includes:
 
 ---
 
-## 📁 Folder Structure
-
-bash
-├── public/
-│   └── SHAKTHEVELL M FINAL.pdf   # Resume file
-├── src/
-│   ├── components/               # UI components
-│   ├── assets/                   # Images and static files
-│   └── App.jsx                   # Main app entry
-├── README.md
-└── package.json
-
 🚀 Deployment
 The website is deployed using Vercel.
 You can also run this locally using :
