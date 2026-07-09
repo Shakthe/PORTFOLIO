@@ -95,14 +95,33 @@
           "Integrated secure **CRUD operations** for dynamic data flow, supporting multi-user interactions with role-based access.",
           "Coordinated with cross-functional teams to deliver **bug-free, production-ready software** on schedule."
         ],
-        "technologies": [".NET", "MS SQL Server", "HTML/CSS", "JavaScript", "CRUD Operations", "Responsive Design"],
+        "technologies": [
+          ".NET",
+          "MS SQL Server",
+          "HTML/CSS",
+          "JavaScript",
+          "CRUD Operations",
+          "Responsive Design"
+        ],
         "visible": true
       }
     ],
     "stats": [
-      { "id": "eff", "value": "30%", "label": "Workflow Efficiency Improvement" },
-      { "id": "emp", "value": "50+", "label": "Employees Supported" },
-      { "id": "sched", "value": "100%", "label": "On-Schedule Delivery" }
+      {
+        "id": "eff",
+        "value": "30%",
+        "label": "Workflow Efficiency Improvement"
+      },
+      {
+        "id": "emp",
+        "value": "50+",
+        "label": "Employees Supported"
+      },
+      {
+        "id": "sched",
+        "value": "100%",
+        "label": "On-Schedule Delivery"
+      }
     ]
   },
   "projects": [
@@ -118,14 +137,26 @@
         "Created intuitive UI/UX for easy deployment and maintenance",
         "Ensured robust back-end data handling with secure CRUD operations"
       ],
-      "technologies": [".NET", "MS SQL Server", "HTML/CSS", "JavaScript", "CRUD Operations"],
+      "technologies": [
+        ".NET",
+        "MS SQL Server",
+        "HTML/CSS",
+        "JavaScript",
+        "CRUD Operations"
+      ],
       "type": "Web Development",
       "icon": "💼",
       "featured": true,
       "visible": true,
       "stats": [
-        { "label": "users", "value": "50+" },
-        { "label": "efficiency", "value": "30%" }
+        {
+          "label": "users",
+          "value": "50+"
+        },
+        {
+          "label": "efficiency",
+          "value": "30%"
+        }
       ],
       "links": []
     },
@@ -141,14 +172,27 @@
         "Implemented path-finding algorithms for optimized navigation",
         "Achieved 40% better maneuverability and 20% lower power consumption"
       ],
-      "technologies": ["ROS", "Raspberry Pi", "Python", "C++", "Embedded C", "IoT Sensors"],
+      "technologies": [
+        "ROS",
+        "Raspberry Pi",
+        "Python",
+        "C++",
+        "Embedded C",
+        "IoT Sensors"
+      ],
       "type": "Hardware / IoT",
       "icon": "🤖",
       "featured": true,
       "visible": true,
       "stats": [
-        { "label": "awards", "value": "2" },
-        { "label": "improvement", "value": "40%" }
+        {
+          "label": "awards",
+          "value": "2"
+        },
+        {
+          "label": "improvement",
+          "value": "40%"
+        }
       ],
       "links": []
     },
@@ -159,7 +203,11 @@
       "period": "",
       "description": "A Python script to convert decimal values into IEEE 754 binary format with high precision.",
       "achievements": [],
-      "technologies": ["Python", "Binary Conversion", "IEEE 754"],
+      "technologies": [
+        "Python",
+        "Binary Conversion",
+        "IEEE 754"
+      ],
       "type": "Utility Tool",
       "icon": "🔢",
       "featured": false,
@@ -174,7 +222,12 @@
       "period": "",
       "description": "Used machine learning algorithms to classify and detect different sports from images.",
       "achievements": [],
-      "technologies": ["Python", "Machine Learning", "Computer Vision", "TensorFlow"],
+      "technologies": [
+        "Python",
+        "Machine Learning",
+        "Computer Vision",
+        "TensorFlow"
+      ],
       "type": "Machine Learning",
       "icon": "🏅",
       "featured": false,
@@ -190,12 +243,30 @@
         "title": "Programming Languages",
         "icon": "code",
         "skills": [
-          { "name": "C++", "level": 90 },
-          { "name": "Java (OOP)", "level": 85 },
-          { "name": "Python", "level": 88 },
-          { "name": "C#", "level": 80 },
-          { "name": "C", "level": 85 },
-          { "name": "Embedded C", "level": 75 }
+          {
+            "name": "C++",
+            "level": 90
+          },
+          {
+            "name": "Java (OOP)",
+            "level": 85
+          },
+          {
+            "name": "Python",
+            "level": 88
+          },
+          {
+            "name": "C#",
+            "level": 80
+          },
+          {
+            "name": "C",
+            "level": 85
+          },
+          {
+            "name": "Embedded C",
+            "level": 75
+          }
         ]
       },
       {
@@ -203,11 +274,26 @@
         "title": "Web Technologies",
         "icon": "globe",
         "skills": [
-          { "name": "React.js", "level": 85 },
-          { "name": "Node.js", "level": 80 },
-          { "name": ".NET", "level": 85 },
-          { "name": "JavaScript", "level": 88 },
-          { "name": "HTML/CSS", "level": 90 }
+          {
+            "name": "React.js",
+            "level": 85
+          },
+          {
+            "name": "Node.js",
+            "level": 80
+          },
+          {
+            "name": ".NET",
+            "level": 85
+          },
+          {
+            "name": "JavaScript",
+            "level": 88
+          },
+          {
+            "name": "HTML/CSS",
+            "level": 90
+          }
         ]
       },
       {
@@ -215,10 +301,22 @@
         "title": "Database & Tools",
         "icon": "database",
         "skills": [
-          { "name": "SQL", "level": 85 },
-          { "name": "MS SQL Server", "level": 80 },
-          { "name": "Git/GitHub", "level": 90 },
-          { "name": "Visual Studio", "level": 85 }
+          {
+            "name": "SQL",
+            "level": 85
+          },
+          {
+            "name": "MS SQL Server",
+            "level": 80
+          },
+          {
+            "name": "Git/GitHub",
+            "level": 90
+          },
+          {
+            "name": "Visual Studio",
+            "level": 85
+          }
         ]
       },
       {
@@ -226,11 +324,26 @@
         "title": "Core Competencies",
         "icon": "cpu",
         "skills": [
-          { "name": "Data Structures", "level": 90 },
-          { "name": "Algorithms", "level": 88 },
-          { "name": "OOP", "level": 90 },
-          { "name": "Debugging", "level": 85 },
-          { "name": "Unit Testing", "level": 75 }
+          {
+            "name": "Data Structures",
+            "level": 90
+          },
+          {
+            "name": "Algorithms",
+            "level": 88
+          },
+          {
+            "name": "OOP",
+            "level": 90
+          },
+          {
+            "name": "Debugging",
+            "level": 85
+          },
+          {
+            "name": "Unit Testing",
+            "level": 75
+          }
         ]
       }
     ],
@@ -249,18 +362,54 @@
   "contact": {
     "infoTitle": "Contact Information",
     "info": [
-      { "id": "email", "icon": "mail", "label": "Email", "value": "shakthevell.m@gmail.com", "link": "mailto:shakthevell.m@gmail.com" },
-      { "id": "phone", "icon": "phone", "label": "Phone", "value": "+91-7338917196", "link": "tel:+917338917196" },
-      { "id": "location", "icon": "map", "label": "Location", "value": "Chennai, India", "link": "" }
+      {
+        "id": "email",
+        "icon": "mail",
+        "label": "Email",
+        "value": "shakthevell.m@gmail.com",
+        "link": "mailto:shakthevell.m@gmail.com"
+      },
+      {
+        "id": "phone",
+        "icon": "phone",
+        "label": "Phone",
+        "value": "+91-7338917196",
+        "link": "tel:+917338917196"
+      },
+      {
+        "id": "location",
+        "icon": "map",
+        "label": "Location",
+        "value": "Chennai, India",
+        "link": ""
+      }
     ],
     "socialTitle": "Connect With Me",
     "socials": [
-      { "id": "github", "icon": "github", "label": "GitHub", "username": "@Shakthe", "url": "https://github.com/Shakthe" },
-      { "id": "linkedin", "icon": "linkedin", "label": "LinkedIn", "username": "shakthevell-m", "url": "https://www.linkedin.com/in/shakthevell-m-39301329a/" },
-      { "id": "leetcode", "icon": "link", "label": "LeetCode", "username": "@shakthe", "url": "https://leetcode.com/u/shakthe/" }
+      {
+        "id": "github",
+        "icon": "github",
+        "label": "GitHub",
+        "username": "@Shakthe",
+        "url": "https://github.com/Shakthe"
+      },
+      {
+        "id": "linkedin",
+        "icon": "linkedin",
+        "label": "LinkedIn",
+        "username": "shakthevell-m",
+        "url": "https://www.linkedin.com/in/shakthevell-m-39301329a/"
+      },
+      {
+        "id": "leetcode",
+        "icon": "link",
+        "label": "LeetCode",
+        "username": "@shakthe",
+        "url": "https://leetcode.com/u/shakthe/"
+      }
     ]
   },
   "footer": {
-    "tagline": "Computer Science Undergraduate · IoT Enthusiast"
+    "tagline": "Computer Science Undergraduate HAHAHAHAHAHHAHAHAHAHAHAHAHA EASET EGGGG"
   }
 }
