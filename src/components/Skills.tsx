@@ -1,90 +1,38 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
-import { Code, Database, Wrench, Cpu } from 'lucide-react';
+import { Wrench } from 'lucide-react';
+import { useContent } from '@/context/ContentContext';
+import { Icon } from '@/lib/icons';
+import { Emphasis } from '@/lib/richtext';
 
 const Skills = () => {
-  const skillCategories = [
-    {
-      title: "Programming Languages",
-      icon: <Code className="h-6 w-6" />,
-      skills: [
-        { name: "C++", level: 90 },
-        { name: "Java (OOP)", level: 85 },
-        { name: "Python", level: 88 },
-        { name: "C#", level: 80 },
-        { name: "C", level: 85 },
-        { name: "Embedded C", level: 75 }
-      ]
-    },
-    {
-      title: "Web Technologies",
-      icon: <Code className="h-6 w-6" />,
-      skills: [
-        { name: "React.js", level: 85 },
-        { name: "Node.js", level: 80 },
-        { name: ".NET", level: 85 },
-        { name: "JavaScript", level: 88 },
-        { name: "HTML/CSS", level: 90 }
-      ]
-    },
-    {
-      title: "Database & Tools",
-      icon: <Database className="h-6 w-6" />,
-      skills: [
-        { name: "SQL", level: 85 },
-        { name: "MS SQL Server", level: 80 },
-        { name: "Git/GitHub", level: 90 },
-        { name: "Visual Studio", level: 85 }
-      ]
-    },
-    {
-      title: "Core Competencies",
-      icon: <Cpu className="h-6 w-6" />,
-      skills: [
-        { name: "Data Structures", level: 90 },
-        { name: "Algorithms", level: 88 },
-        { name: "OOP", level: 90 },
-        { name: "Debugging", level: 85 },
-        { name: "Unit Testing", level: 75 }
-      ]
-    }
-  ];
-
-  const certifications = [
-    "Competitive Programming - LeetCode",
-    "Data Structures & Algorithms",
-    "Object-Oriented Programming",
-    "Full-Stack Development",
-    "IoT & Embedded Systems",
-    "Database Management"
-  ];
+  const { content } = useContent();
+  const { skills } = content;
+  const meta = content.sections.skills;
 
   return (
-    <section id="skills" className="py-20">
+    <section id="skills" className="relative py-24">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl font-bold mb-4">Technical Skills</h2>
-          <div className="w-20 h-1 bg-gradient-primary mx-auto mb-6"></div>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            A comprehensive toolkit spanning from low-level embedded programming to modern web development
-          </p>
+        <div className="mb-16 animate-fade-in text-center">
+          <h2 className="text-4xl font-bold tracking-tight">{meta.title}</h2>
+          <div className="accent-rule mx-auto mt-4 w-24"></div>
+          {meta.subtitle && (
+            <p className="mx-auto mt-6 max-w-3xl text-lg text-muted-foreground">{meta.subtitle}</p>
+          )}
         </div>
 
-        {/* Skills Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-16">
-          {skillCategories.map((category, categoryIndex) => (
-            <Card 
-              key={categoryIndex} 
-              className="card-shadow hover:shadow-lg smooth-transition animate-fade-in"
-              style={{ animationDelay: `${categoryIndex * 0.1}s` }}
+        <div className="mb-16 grid gap-6 lg:grid-cols-2">
+          {skills.categories.map((category, categoryIndex) => (
+            <Card
+              key={category.id}
+              className="animate-fade-in border-0 bg-transparent glass glass-hover"
+              style={{ animationDelay: `${categoryIndex * 0.08}s` }}
             >
               <CardContent className="p-6">
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mr-4">
-                    <div className="text-primary-foreground">
-                      {category.icon}
-                    </div>
+                <div className="mb-6 flex items-center">
+                  <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-primary">
+                    <Icon name={category.icon} className="h-6 w-6 text-primary-foreground" />
                   </div>
                   <h3 className="text-xl font-semibold">{category.title}</h3>
                 </div>
@@ -92,14 +40,11 @@ const Skills = () => {
                 <div className="space-y-4">
                   {category.skills.map((skill, skillIndex) => (
                     <div key={skillIndex} className="space-y-2">
-                      <div className="flex justify-between items-center">
+                      <div className="flex items-center justify-between">
                         <span className="font-medium">{skill.name}</span>
                         <span className="text-sm text-muted-foreground">{skill.level}%</span>
                       </div>
-                      <Progress 
-                        value={skill.level} 
-                        className="h-2"
-                      />
+                      <Progress value={skill.level} className="h-1.5 bg-white/[0.06]" />
                     </div>
                   ))}
                 </div>
@@ -108,35 +53,35 @@ const Skills = () => {
           ))}
         </div>
 
-        {/* Certifications & Expertise */}
-        <div className="max-w-4xl mx-auto">
-          <Card className="card-shadow animate-fade-in">
+        <div className="mx-auto max-w-4xl">
+          <Card className="animate-fade-in border-0 bg-transparent glass">
             <CardContent className="p-8">
-              <div className="flex items-center mb-6">
-                <Wrench className="h-8 w-8 text-primary mr-3" />
-                <h3 className="text-2xl font-semibold">Areas of Expertise</h3>
+              <div className="mb-6 flex items-center">
+                <Wrench className="mr-3 h-7 w-7 text-primary" />
+                <h3 className="text-2xl font-semibold">{skills.expertiseTitle}</h3>
               </div>
-              
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
-                {certifications.map((cert, index) => (
-                  <Badge 
-                    key={index} 
-                    variant="secondary" 
-                    className="bg-primary/10 text-primary p-3 text-center justify-center hover:bg-primary hover:text-primary-foreground smooth-transition"
+
+              <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+                {skills.expertise.map((item, index) => (
+                  <Badge
+                    key={index}
+                    className="chip justify-center border-0 p-3 text-center font-normal smooth-transition hover:bg-primary hover:text-primary-foreground"
                   >
-                    {cert}
+                    {item}
                   </Badge>
                 ))}
               </div>
 
-              <div className="mt-8 p-6 bg-muted/30 rounded-lg">
-                <h4 className="font-semibold mb-3 text-center">Competitive Programming</h4>
-                <p className="text-center text-muted-foreground">
-                  Active problem solver on <strong>LeetCode</strong> with consistent practice in algorithmic challenges. 
-                  Strong foundation in competitive programming enhances my ability to write efficient, 
-                  optimized code for real-world applications.
-                </p>
-              </div>
+              {skills.note && (
+                <div className="mt-8 rounded-xl border border-border bg-white/[0.02] p-6">
+                  {skills.noteTitle && (
+                    <h4 className="mb-3 text-center font-semibold">{skills.noteTitle}</h4>
+                  )}
+                  <p className="text-center text-muted-foreground">
+                    <Emphasis text={skills.note} />
+                  </p>
+                </div>
+              )}
             </CardContent>
           </Card>
         </div>

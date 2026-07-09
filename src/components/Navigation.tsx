@@ -1,17 +1,18 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import { Menu, X } from 'lucide-react';
 
 const Navigation = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
-      
-      // Update active section based on scroll position
+
       const sections = ['home', 'about', 'experience', 'projects', 'skills', 'contact'];
-      const currentSection = sections.find(section => {
+      const currentSection = sections.find((section) => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
@@ -19,10 +20,8 @@ const Navigation = () => {
         }
         return false;
       });
-      
-      if (currentSection) {
-        setActiveSection(currentSection);
-      }
+
+      if (currentSection) setActiveSection(currentSection);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -30,10 +29,8 @@ const Navigation = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    setMobileOpen(false);
   };
 
   const navItems = [
@@ -42,42 +39,77 @@ const Navigation = () => {
     { id: 'experience', label: 'Experience' },
     { id: 'projects', label: 'Projects' },
     { id: 'skills', label: 'Skills' },
-    { id: 'contact', label: 'Contact' }
+    { id: 'contact', label: 'Contact' },
   ];
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-background/80 backdrop-blur-md border-b border-border card-shadow' 
-        : 'bg-transparent'
-    }`}>
+    <nav
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+        isScrolled
+          ? 'border-b border-border bg-background/70 backdrop-blur-xl'
+          : 'border-b border-transparent bg-transparent'
+      }`}
+    >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          <div className="font-bold text-xl text-primary">
+        <div className="flex h-16 items-center justify-between">
+          <button
+            onClick={() => scrollToSection('home')}
+            className="text-lg font-bold tracking-tight text-foreground"
+          >
             Shakthevell M
-          </div>
-          
-          <div className="hidden md:flex space-x-1">
+          </button>
+
+          {/* Desktop nav */}
+          <div className="hidden items-center gap-1 md:flex">
             {navItems.map((item) => (
-              <Button
+              <button
                 key={item.id}
-                variant={activeSection === item.id ? "default" : "ghost"}
                 onClick={() => scrollToSection(item.id)}
-                className="smooth-transition"
+                className={`rounded-lg px-3 py-2 text-sm font-medium smooth-transition ${
+                  activeSection === item.id
+                    ? 'bg-primary/10 text-primary'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
               >
                 {item.label}
-              </Button>
+              </button>
             ))}
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile toggle */}
           <div className="md:hidden">
-            <Button variant="ghost" size="sm">
-              Menu
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setMobileOpen((o) => !o)}
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
         </div>
       </div>
+
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div className="border-t border-border bg-background/95 backdrop-blur-xl md:hidden">
+          <div className="container mx-auto flex flex-col gap-1 px-4 py-3">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`rounded-lg px-3 py-2 text-left text-sm font-medium smooth-transition ${
+                  activeSection === item.id
+                    ? 'bg-primary/10 text-primary'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

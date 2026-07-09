@@ -2,183 +2,195 @@ import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Github, ExternalLink, Award, Calendar, Users } from 'lucide-react';
+import { Github, ExternalLink, Award, Calendar, ArrowUpRight } from 'lucide-react';
+import { useContent } from '@/context/ContentContext';
+import type { Project, ProjectLink } from '@/types/content';
 
-const Projects = () => {
-  const [showMore, setShowMore] = useState(false);
-
-  const mainProjects = [
-    {
-      title: "FlexiFlow",
-      subtitle: "Web-Based Leave and Work From Home Request Management Tool",
-      period: "May 2025 - July 2025",
-      description: "Built a comprehensive web-based request management platform using .NET and MS SQL Server, enabling streamlined approvals for 50+ employees.",
-      achievements: [
-        "Developed department-level filtering and role-based access control",
-        "Implemented real-time status tracking for enhanced transparency",
-        "Created intuitive UI/UX for easy deployment and maintenance",
-        "Ensured robust back-end data handling with secure CRUD operations"
-      ],
-      technologies: [".NET", "MS SQL Server", "HTML/CSS", "JavaScript", "CRUD Operations"],
-      type: "Web Development",
-      icon: "💼",
-      stats: { users: "50+", efficiency: "30%" }
-    },
-    {
-      title: "TragerX",
-      subtitle: "Autonomous Smart Trolley System using ROS",
-      period: "May 2023 - Jan 2025",
-      description: "Engineered a smart autonomous trolley using Raspberry Pi, DC motors, ultrasonic and infrared sensors, and ROS for real-time human-following capability.",
-      achievements: [
-        "🥇 1st Place at CEG ITRIX'25",
-        "🥈 2nd Place at IIITDM Kancheepuram IoT Hackathon",
-        "Implemented path-finding algorithms for optimized navigation",
-        "Achieved 40% better maneuverability and 20% lower power consumption"
-      ],
-      technologies: ["ROS", "Raspberry Pi", "Python", "C++", "Embedded C", "IoT Sensors"],
-      type: "Hardware / IoT",
-      icon: "🤖",
-      stats: { awards: "2", improvement: "40%" }
-    }
-  ];
-
-  const additionalProjects = [
-    {
-      title: "Decimal to IEEE 754 Converter",
-      description: "A Python script to convert decimal values into IEEE 754 binary format with high precision.",
-      technologies: ["Python", "Binary Conversion", "IEEE 754"],
-      type: "Utility Tool"
-    },
-    {
-      title: "Sports Image Detection",
-      description: "Used machine learning algorithms to classify and detect different sports from images.",
-      technologies: ["Python", "Machine Learning", "Computer Vision", "TensorFlow"],
-      type: "Machine Learning"
-    }
-  ];
-
+const LinkButton = ({ link }: { link: ProjectLink }) => {
+  const isGithub = /github/i.test(link.url) || /github/i.test(link.label);
+  const Icon = isGithub ? Github : ExternalLink;
   return (
-    <section id="projects" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl font-bold mb-4">Featured Projects</h2>
-          <div className="w-20 h-1 bg-gradient-primary mx-auto mb-6"></div>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Showcasing my journey from IoT hardware innovation to full-stack web development
-          </p>
+    <a
+      href={link.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-transparent px-3 py-1.5 text-xs font-medium text-muted-foreground smooth-transition hover:border-primary/50 hover:text-primary"
+    >
+      <Icon className="h-3.5 w-3.5" />
+      {link.label || (isGithub ? 'Code' : 'Live')}
+    </a>
+  );
+};
+
+const FeaturedCard = ({ project, index }: { project: Project; index: number }) => (
+  <Card
+    className="group animate-fade-in border-0 bg-transparent glass glass-hover"
+    style={{ animationDelay: `${index * 0.1}s` }}
+  >
+    <CardHeader>
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex items-center gap-3">
+          {project.icon && <div className="text-3xl">{project.icon}</div>}
+          <div>
+            <CardTitle className="text-xl smooth-transition group-hover:text-primary">
+              {project.title}
+            </CardTitle>
+            {project.subtitle && (
+              <p className="mt-0.5 text-sm font-medium text-primary/90">{project.subtitle}</p>
+            )}
+          </div>
         </div>
+        <Badge variant="outline" className="shrink-0 border-primary/40 text-primary">
+          {project.type}
+        </Badge>
+      </div>
+      {project.period && (
+        <div className="flex items-center text-sm text-muted-foreground">
+          <Calendar className="mr-2 h-4 w-4" />
+          {project.period}
+        </div>
+      )}
+    </CardHeader>
 
-        {/* Main Projects */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-12">
-          {mainProjects.map((project, index) => (
-            <Card 
-              key={index} 
-              className="card-shadow hover:shadow-lg smooth-transition animate-fade-in group"
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
-              <CardHeader>
-                <div className="flex items-start justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="text-3xl">{project.icon}</div>
-                    <div>
-                      <CardTitle className="text-xl group-hover:text-primary smooth-transition">
-                        {project.title}
-                      </CardTitle>
-                      <p className="text-primary font-medium">{project.subtitle}</p>
-                    </div>
-                  </div>
-                  <Badge variant="outline" className="border-primary/50 text-primary">
-                    {project.type}
-                  </Badge>
-                </div>
-                <div className="flex items-center text-sm text-muted-foreground">
-                  <Calendar className="h-4 w-4 mr-2" />
-                  {project.period}
-                </div>
-              </CardHeader>
+    <CardContent className="space-y-6">
+      <p className="leading-relaxed text-muted-foreground">{project.description}</p>
 
-              <CardContent className="space-y-6">
-                <p className="text-muted-foreground">{project.description}</p>
+      {project.achievements.length > 0 && (
+        <div>
+          <h4 className="mb-3 flex items-center font-semibold">
+            <Award className="mr-2 h-4 w-4 text-primary" />
+            Key Achievements
+          </h4>
+          <ul className="space-y-2">
+            {project.achievements.map((achievement, i) => (
+              <li key={i} className="flex items-start text-sm text-muted-foreground">
+                <div className="mr-3 mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary"></div>
+                {achievement}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
-                {/* Achievements */}
-                <div>
-                  <h4 className="font-semibold mb-3 flex items-center">
-                    <Award className="h-4 w-4 mr-2 text-primary" />
-                    Key Achievements
-                  </h4>
-                  <ul className="space-y-2">
-                    {project.achievements.map((achievement, i) => (
-                      <li key={i} className="flex items-start text-sm text-muted-foreground">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                        {achievement}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Stats */}
-                <div className="grid grid-cols-2 gap-4">
-                  {Object.entries(project.stats).map(([key, value]) => (
-                    <div key={key} className="text-center bg-muted/50 rounded-lg p-3">
-                      <div className="text-lg font-bold text-primary">{value}</div>
-                      <div className="text-xs text-muted-foreground capitalize">{key}</div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Technologies */}
-                <div>
-                  <h4 className="font-semibold mb-3">Technologies Used</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech) => (
-                      <Badge key={tech} variant="secondary" className="bg-primary/10 text-primary">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+      {project.stats.length > 0 && (
+        <div className="grid grid-cols-2 gap-3">
+          {project.stats.map((stat, i) => (
+            <div key={i} className="rounded-xl border border-border bg-white/[0.02] p-3 text-center">
+              <div className="text-lg font-bold text-primary">{stat.value}</div>
+              <div className="text-xs capitalize text-muted-foreground">{stat.label}</div>
+            </div>
           ))}
         </div>
+      )}
 
-        {/* Additional Projects */}
-        <div className="text-center mb-8">
-          <Button 
-            onClick={() => setShowMore(!showMore)}
-            variant="outline"
-            className="hover:bg-primary hover:text-primary-foreground smooth-transition"
-          >
-            {showMore ? 'Show Less' : 'Show More Projects'}
-          </Button>
-        </div>
-
-        {showMore && (
-          <div className="grid md:grid-cols-2 gap-6 animate-fade-in">
-            {additionalProjects.map((project, index) => (
-              <Card 
-                key={index} 
-                className="card-shadow hover:shadow-lg smooth-transition"
-              >
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-lg font-semibold">{project.title}</h3>
-                    <Badge variant="outline" className="border-primary/50 text-primary text-xs">
-                      {project.type}
-                    </Badge>
-                  </div>
-                  <p className="text-muted-foreground mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech) => (
-                      <Badge key={tech} variant="secondary" className="bg-primary/10 text-primary text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+      {project.technologies.length > 0 && (
+        <div>
+          <h4 className="mb-3 font-semibold">Technologies Used</h4>
+          <div className="flex flex-wrap gap-2">
+            {project.technologies.map((tech) => (
+              <Badge key={tech} className="chip border-0 font-normal">
+                {tech}
+              </Badge>
             ))}
           </div>
+        </div>
+      )}
+
+      {project.links.length > 0 && (
+        <div className="flex flex-wrap gap-2 pt-1">
+          {project.links.map((link, i) => (
+            <LinkButton key={i} link={link} />
+          ))}
+        </div>
+      )}
+    </CardContent>
+  </Card>
+);
+
+const CompactCard = ({ project }: { project: Project }) => (
+  <Card className="group animate-fade-in border-0 bg-transparent glass glass-hover">
+    <CardContent className="p-6">
+      <div className="mb-3 flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2">
+          {project.icon && <span className="text-xl">{project.icon}</span>}
+          <h3 className="text-lg font-semibold smooth-transition group-hover:text-primary">
+            {project.title}
+          </h3>
+        </div>
+        <Badge variant="outline" className="shrink-0 border-primary/40 text-xs text-primary">
+          {project.type}
+        </Badge>
+      </div>
+      <p className="mb-4 text-sm leading-relaxed text-muted-foreground">{project.description}</p>
+      <div className="flex flex-wrap gap-2">
+        {project.technologies.map((tech) => (
+          <Badge key={tech} className="chip border-0 text-xs font-normal">
+            {tech}
+          </Badge>
+        ))}
+      </div>
+      {project.links.length > 0 && (
+        <div className="mt-4 flex flex-wrap gap-2">
+          {project.links.map((link, i) => (
+            <LinkButton key={i} link={link} />
+          ))}
+        </div>
+      )}
+    </CardContent>
+  </Card>
+);
+
+const Projects = () => {
+  const { content } = useContent();
+  const [showMore, setShowMore] = useState(false);
+  const meta = content.sections.projects;
+
+  const visible = content.projects.filter((p) => p.visible);
+  const featured = visible.filter((p) => p.featured);
+  const additional = visible.filter((p) => !p.featured);
+
+  return (
+    <section id="projects" className="relative py-24">
+      <div className="container mx-auto px-4">
+        <div className="mb-16 animate-fade-in text-center">
+          <h2 className="text-4xl font-bold tracking-tight">{meta.title}</h2>
+          <div className="accent-rule mx-auto mt-4 w-24"></div>
+          {meta.subtitle && (
+            <p className="mx-auto mt-6 max-w-3xl text-lg text-muted-foreground">{meta.subtitle}</p>
+          )}
+        </div>
+
+        {featured.length > 0 && (
+          <div className="mb-12 grid gap-6 lg:grid-cols-2">
+            {featured.map((project, index) => (
+              <FeaturedCard key={project.id} project={project} index={index} />
+            ))}
+          </div>
+        )}
+
+        {additional.length > 0 && (
+          <>
+            <div className="mb-8 text-center">
+              <Button
+                onClick={() => setShowMore(!showMore)}
+                variant="outline"
+                className="border-border bg-transparent smooth-transition hover:border-primary/50 hover:bg-primary/10 hover:text-primary"
+              >
+                {showMore ? 'Show Less' : `Show More Projects (${additional.length})`}
+                <ArrowUpRight
+                  className={`ml-1.5 h-4 w-4 smooth-transition ${showMore ? 'rotate-90' : ''}`}
+                />
+              </Button>
+            </div>
+
+            {showMore && (
+              <div className="grid animate-fade-in gap-5 md:grid-cols-2">
+                {additional.map((project) => (
+                  <CompactCard key={project.id} project={project} />
+                ))}
+              </div>
+            )}
+          </>
         )}
       </div>
     </section>

@@ -1,0 +1,266 @@
+{
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Shakthevell",
+    "role": "Computer Science Undergraduate",
+    "tagline": "IoT Enthusiast · Full-Stack Developer · Competitive Programmer",
+    "bio": "Passionate about building intelligent hardware and scalable software solutions. Currently pursuing B.Tech in Computer Science (IoT) at Shiv Nadar University with an 8.1 GPA.",
+    "cvUrl": "https://drive.google.com/file/d/1LVh979Xc2go7hqkxqIzeoS6AgBb1JQWm/view?usp=sharing"
+  },
+  "sections": {
+    "about": {
+      "title": "About Me",
+      "subtitle": "Motivated Computer Science undergraduate with a strong foundation in Data Structures, Algorithms, Object-Oriented Programming, and Full-Stack Development. Skilled in designing scalable, reliable software solutions and passionate about IoT innovation."
+    },
+    "experience": {
+      "title": "Professional Experience",
+      "subtitle": ""
+    },
+    "projects": {
+      "title": "Featured Projects",
+      "subtitle": "Showcasing my journey from IoT hardware innovation to full-stack web development"
+    },
+    "skills": {
+      "title": "Technical Skills",
+      "subtitle": "A comprehensive toolkit spanning from low-level embedded programming to modern web development"
+    },
+    "contact": {
+      "title": "Get In Touch",
+      "subtitle": "I'm always open to discussing new opportunities, collaborations, or just having a chat about technology"
+    }
+  },
+  "about": {
+    "intro": "Motivated Computer Science undergraduate with a strong foundation in Data Structures, Algorithms, Object-Oriented Programming, and Full-Stack Development. Skilled in designing scalable, reliable software solutions and passionate about IoT innovation.",
+    "highlights": [
+      {
+        "id": "edu",
+        "icon": "graduation",
+        "title": "B.Tech Computer Science (IoT)",
+        "subtitle": "Shiv Nadar University, Chennai",
+        "description": "8.1 GPA • Graduating May 2027",
+        "highlight": true
+      },
+      {
+        "id": "itrix",
+        "icon": "award",
+        "title": "1st Place - CEG ITRIX'25",
+        "subtitle": "TragerX Project",
+        "description": "Autonomous smart trolley system",
+        "highlight": false
+      },
+      {
+        "id": "iiitdm",
+        "icon": "award",
+        "title": "2nd Place - IIITDM Kancheepuram",
+        "subtitle": "IoT Hackathon",
+        "description": "Hardware innovation competition",
+        "highlight": false
+      },
+      {
+        "id": "cp",
+        "icon": "code",
+        "title": "Active Competitive Programmer",
+        "subtitle": "LeetCode Platform",
+        "description": "Strong foundation in DSA",
+        "highlight": false
+      }
+    ],
+    "journeyTitle": "My Journey",
+    "journey": [
+      "I'm passionate about building intelligent hardware and scalable software solutions using modern technologies like C++, Java, Python, .NET, React.js, and Node.js.",
+      "My experience spans from embedded systems and IoT development to full-stack web applications. I enjoy solving complex problems and have proven my ability to deliver high-impact projects in collaborative, fast-paced environments.",
+      "As an active competitive programmer on LeetCode, I continuously sharpen my algorithmic thinking and problem-solving skills, which I apply to real-world development challenges."
+    ],
+    "interestsTitle": "Core Interests",
+    "interests": [
+      "Internet of Things (IoT) Development",
+      "Full-Stack Web Development",
+      "Embedded Systems & Hardware",
+      "Competitive Programming",
+      "Machine Learning Applications"
+    ]
+  },
+  "experience": {
+    "items": [
+      {
+        "id": "saipem",
+        "role": "Software Development Intern",
+        "company": "Saipem Private Limited",
+        "period": "May 2025 – July 2025",
+        "location": "Chennai, On-Site",
+        "icon": "building",
+        "bullets": [
+          "Developed an internal tool using **.NET and MS SQL Server** that improved workflow efficiency by **30%** through real-time deployment.",
+          "Designed and implemented responsive front-end interfaces with **HTML, CSS, and JavaScript**, enhancing usability across devices.",
+          "Integrated secure **CRUD operations** for dynamic data flow, supporting multi-user interactions with role-based access.",
+          "Coordinated with cross-functional teams to deliver **bug-free, production-ready software** on schedule."
+        ],
+        "technologies": [".NET", "MS SQL Server", "HTML/CSS", "JavaScript", "CRUD Operations", "Responsive Design"],
+        "visible": true
+      }
+    ],
+    "stats": [
+      { "id": "eff", "value": "30%", "label": "Workflow Efficiency Improvement" },
+      { "id": "emp", "value": "50+", "label": "Employees Supported" },
+      { "id": "sched", "value": "100%", "label": "On-Schedule Delivery" }
+    ]
+  },
+  "projects": [
+    {
+      "id": "flexiflow",
+      "title": "FlexiFlow",
+      "subtitle": "Web-Based Leave and Work From Home Request Management Tool",
+      "period": "May 2025 - July 2025",
+      "description": "Built a comprehensive web-based request management platform using .NET and MS SQL Server, enabling streamlined approvals for 50+ employees.",
+      "achievements": [
+        "Developed department-level filtering and role-based access control",
+        "Implemented real-time status tracking for enhanced transparency",
+        "Created intuitive UI/UX for easy deployment and maintenance",
+        "Ensured robust back-end data handling with secure CRUD operations"
+      ],
+      "technologies": [".NET", "MS SQL Server", "HTML/CSS", "JavaScript", "CRUD Operations"],
+      "type": "Web Development",
+      "icon": "💼",
+      "featured": true,
+      "visible": true,
+      "stats": [
+        { "label": "users", "value": "50+" },
+        { "label": "efficiency", "value": "30%" }
+      ],
+      "links": []
+    },
+    {
+      "id": "tragerx",
+      "title": "TragerX",
+      "subtitle": "Autonomous Smart Trolley System using ROS",
+      "period": "May 2023 - Jan 2025",
+      "description": "Engineered a smart autonomous trolley using Raspberry Pi, DC motors, ultrasonic and infrared sensors, and ROS for real-time human-following capability.",
+      "achievements": [
+        "🥇 1st Place at CEG ITRIX'25",
+        "🥈 2nd Place at IIITDM Kancheepuram IoT Hackathon",
+        "Implemented path-finding algorithms for optimized navigation",
+        "Achieved 40% better maneuverability and 20% lower power consumption"
+      ],
+      "technologies": ["ROS", "Raspberry Pi", "Python", "C++", "Embedded C", "IoT Sensors"],
+      "type": "Hardware / IoT",
+      "icon": "🤖",
+      "featured": true,
+      "visible": true,
+      "stats": [
+        { "label": "awards", "value": "2" },
+        { "label": "improvement", "value": "40%" }
+      ],
+      "links": []
+    },
+    {
+      "id": "ieee754",
+      "title": "Decimal to IEEE 754 Converter",
+      "subtitle": "",
+      "period": "",
+      "description": "A Python script to convert decimal values into IEEE 754 binary format with high precision.",
+      "achievements": [],
+      "technologies": ["Python", "Binary Conversion", "IEEE 754"],
+      "type": "Utility Tool",
+      "icon": "🔢",
+      "featured": false,
+      "visible": true,
+      "stats": [],
+      "links": []
+    },
+    {
+      "id": "sports-detection",
+      "title": "Sports Image Detection",
+      "subtitle": "",
+      "period": "",
+      "description": "Used machine learning algorithms to classify and detect different sports from images.",
+      "achievements": [],
+      "technologies": ["Python", "Machine Learning", "Computer Vision", "TensorFlow"],
+      "type": "Machine Learning",
+      "icon": "🏅",
+      "featured": false,
+      "visible": true,
+      "stats": [],
+      "links": []
+    }
+  ],
+  "skills": {
+    "categories": [
+      {
+        "id": "languages",
+        "title": "Programming Languages",
+        "icon": "code",
+        "skills": [
+          { "name": "C++", "level": 90 },
+          { "name": "Java (OOP)", "level": 85 },
+          { "name": "Python", "level": 88 },
+          { "name": "C#", "level": 80 },
+          { "name": "C", "level": 85 },
+          { "name": "Embedded C", "level": 75 }
+        ]
+      },
+      {
+        "id": "web",
+        "title": "Web Technologies",
+        "icon": "globe",
+        "skills": [
+          { "name": "React.js", "level": 85 },
+          { "name": "Node.js", "level": 80 },
+          { "name": ".NET", "level": 85 },
+          { "name": "JavaScript", "level": 88 },
+          { "name": "HTML/CSS", "level": 90 }
+        ]
+      },
+      {
+        "id": "tools",
+        "title": "Database & Tools",
+        "icon": "database",
+        "skills": [
+          { "name": "SQL", "level": 85 },
+          { "name": "MS SQL Server", "level": 80 },
+          { "name": "Git/GitHub", "level": 90 },
+          { "name": "Visual Studio", "level": 85 }
+        ]
+      },
+      {
+        "id": "core",
+        "title": "Core Competencies",
+        "icon": "cpu",
+        "skills": [
+          { "name": "Data Structures", "level": 90 },
+          { "name": "Algorithms", "level": 88 },
+          { "name": "OOP", "level": 90 },
+          { "name": "Debugging", "level": 85 },
+          { "name": "Unit Testing", "level": 75 }
+        ]
+      }
+    ],
+    "expertiseTitle": "Areas of Expertise",
+    "expertise": [
+      "Competitive Programming - LeetCode",
+      "Data Structures & Algorithms",
+      "Object-Oriented Programming",
+      "Full-Stack Development",
+      "IoT & Embedded Systems",
+      "Database Management"
+    ],
+    "noteTitle": "Competitive Programming",
+    "note": "Active problem solver on **LeetCode** with consistent practice in algorithmic challenges. Strong foundation in competitive programming enhances my ability to write efficient, optimized code for real-world applications."
+  },
+  "contact": {
+    "infoTitle": "Contact Information",
+    "info": [
+      { "id": "email", "icon": "mail", "label": "Email", "value": "shakthevell.m@gmail.com", "link": "mailto:shakthevell.m@gmail.com" },
+      { "id": "phone", "icon": "phone", "label": "Phone", "value": "+91-7338917196", "link": "tel:+917338917196" },
+      { "id": "location", "icon": "map", "label": "Location", "value": "Chennai, India", "link": "" }
+    ],
+    "socialTitle": "Connect With Me",
+    "socials": [
+      { "id": "github", "icon": "github", "label": "GitHub", "username": "@Shakthe", "url": "https://github.com/Shakthe" },
+      { "id": "linkedin", "icon": "linkedin", "label": "LinkedIn", "username": "shakthevell-m", "url": "https://www.linkedin.com/in/shakthevell-m-39301329a/" },
+      { "id": "leetcode", "icon": "link", "label": "LeetCode", "username": "@shakthe", "url": "https://leetcode.com/u/shakthe/" }
+    ]
+  },
+  "footer": {
+    "tagline": "Computer Science Undergraduate · IoT Enthusiast"
+  }
+}
